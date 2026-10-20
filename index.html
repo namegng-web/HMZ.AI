@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101114"><title>HMZ AI — Your AI assistant</title>
+<style>
+:root{color-scheme:dark;--bg:#101114;--panel:#17191e;--panel2:#202229;--line:#2d3038;--text:#f2f3f5;--muted:#a4a8b2;--accent:#a5f3c5;--accentText:#10251a;--danger:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100dvh}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}.app{display:grid;grid-template-columns:270px 1fr;height:100dvh;overflow:hidden}.sidebar{background:#141519;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:16px;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:19px;letter-spacing:-.5px}.logo{width:34px;height:34px;border-radius:11px;background:var(--accent);color:var(--accentText);display:grid;place-items:center;font-weight:900}.newchat{border:1px solid #3b3e47;background:transparent;color:var(--text);padding:11px 13px;border-radius:12px;text-align:left}.newchat:hover,.history-item:hover{background:var(--panel2)}.section-label{font-size:11px;letter-spacing:1.2px;color:var(--muted);text-transform:uppercase;margin:7px 3px 0}.history{overflow:auto;display:flex;flex-direction:column;gap:4px;flex:1}.history-item{border:0;background:transparent;color:#d9dbe1;padding:10px;border-radius:9px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.history-item.active{background:#272a31}.side-bottom{border-top:1px solid var(--line);padding-top:13px}.userline{display:flex;align-items:center;gap:9px;min-width:0}.avatar{width:32px;height:32px;border-radius:50%;background:#343740;display:grid;place-items:center;flex-shrink:0;font-weight:700}.userinfo{min-width:0;flex:1}.userinfo strong,.userinfo small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.userinfo small{color:var(--muted);font-size:12px}.quiet{border:0;background:transparent;color:var(--muted);padding:7px;border-radius:8px}.main{min-width:0;display:flex;flex-direction:column;position:relative}.topbar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid #24262d}.top-title{font-weight:650}.status{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:7px;height:7px;background:var(--accent);border-radius:50%}.messages{flex:1;overflow:auto;padding:26px 18px 18px}.welcome{max-width:730px;margin:10vh auto 0;text-align:center}.welcome .biglogo{margin:0 auto 20px;width:58px;height:58px;border-radius:18px;background:var(--accent);color:var(--accentText);display:grid;place-items:center;font-size:25px;font-weight:900}.welcome h1{font-size:clamp(28px,4vw,40px);letter-spacing:-1.4px;margin:0 0 10px}.welcome p{color:var(--muted);margin:0 auto 27px;max-width:450px}.suggestions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;text-align:left}.suggestion{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;color:#dfe1e7;text-align:left}.suggestion strong{display:block;margin-bottom:3px}.suggestion span{font-size:13px;color:var(--muted)}.message-list{max-width:790px;margin:0 auto;display:flex;flex-direction:column;gap:24px}.message{display:flex;gap:12px;align-items:flex-start}.message.user{flex-direction:row-reverse}.message-avatar{width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#272a31;display:grid;place-items:center;font-size:12px;font-weight:800}.message.user .message-avatar{background:var(--accent);color:var(--accentText)}.bubble{max-width:min(100%,680px);padding:4px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user .bubble{background:#252830;border:1px solid #30333b;border-radius:17px;padding:11px 15px}.thinking{color:var(--muted);font-size:14px}.composer-wrap{padding:10px 18px max(18px,env(safe-area-inset-bottom));width:100%;max-width:850px;margin:0 auto}.composer{display:flex;gap:10px;align-items:flex-end;border:1px solid #41444e;background:#1b1d23;padding:10px;border-radius:18px;box-shadow:0 8px 28px #0003}.composer textarea{flex:1;min-width:0;max-height:180px;resize:none;border:0;outline:0;background:transparent;color:var(--text);padding:8px 5px;line-height:1.5}.send{width:39px;height:39px;border:0;border-radius:12px;background:var(--accent);color:var(--accentText);font-weight:900}.hint{text-align:center;color:#777d88;font-size:11px;margin-top:9px}.error{color:var(--danger);font-size:13px;margin:0 4px 8px;white-space:pre-wrap}.mobile-menu{display:none}.modal-backdrop{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:20px;z-index:5}.modal{width:min(100%,410px);background:#1a1c22;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 24px 90px #0008}.modal h2{margin:0 0 5px}.modal p{margin:0 0 20px;color:var(--muted);font-size:13px}.field{display:block;margin:12px 0}.field span{display:block;font-size:12px;color:#c4c7ce;margin-bottom:6px}.field input{width:100%;padding:12px;border-radius:10px;border:1px solid #3b3e47;background:#111216;color:white;outline:none}.field input:focus{border-color:var(--accent)}.primary{width:100%;border:0;background:var(--accent);color:var(--accentText);font-weight:750;padding:12px;border-radius:11px;margin-top:8px}.switch-auth{width:100%;background:transparent;border:0;color:var(--muted);padding:12px}.auth-error{color:var(--danger);font-size:13px;margin-top:8px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#2b2e36;padding:10px 14px;border:1px solid #454852;border-radius:10px;z-index:9;font-size:13px;max-width:90vw}
+@media(max-width:700px){.app{grid-template-columns:1fr}.sidebar{position:fixed;z-index:4;inset:0 auto 0 0;width:min(84vw,300px);transform:translateX(-105%);transition:transform .2s;box-shadow:20px 0 60px #0005}.sidebar.open{transform:translateX(0)}.mobile-menu{display:inline-grid;place-items:center;border:0;background:transparent;color:var(--text);font-size:22px;width:34px;height:34px}.topbar{padding:0 12px;height:56px}.messages{padding:20px 13px}.welcome{margin:8vh auto 0}.suggestions{grid-template-columns:1fr}.composer-wrap{padding:8px 10px max(12px,env(safe-area-inset-bottom))}.message-list{gap:19px}.status{font-size:11px}.hint{font-size:10px}}
+</style></head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">H</div><span>HMZ AI</span></div>
+  <button class="newchat" id="newChat">＋ &nbsp; New chat</button>
+  <div class="section-label">Your chats</div><div class="history" id="history"></div>
+  <div class="side-bottom"><div class="userline"><div class="avatar" id="userAvatar">?</div><div class="userinfo"><strong id="userName">Guest</strong><small id="userEmail">Sign in to save chats</small></div><button class="quiet" id="authAction">Sign in</button></div></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div style="display:flex;align-items:center;gap:8px"><button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button><div class="top-title">HMZ AI</div></div><div class="status"><span class="dot" id="statusDot"></span><span id="statusText">Checking AI…</span></div></header>
+  <section class="messages" id="messages" aria-live="polite"></section>
+  <div class="composer-wrap"><div class="error" id="error" hidden></div><form class="composer" id="composer"><textarea id="prompt" rows="1" maxlength="12000" placeholder="Message HMZ AI…" aria-label="Message HMZ AI"></textarea><button class="send" id="sendBtn" type="submit" aria-label="Send message">↑</button></form><div class="hint">HMZ AI can make mistakes. Check important information.</div></div>
+</main></div>
+<div id="modalRoot"></div>
+<script>
+const $ = id => document.getElementById(id);
+const state = { user:null, aiConfigured:false, chats:[], activeId:null, busy:false, authMode:"login" };
+async function api(url, options={}) {
+  const response = await fetch(url,{credentials:"same-origin",headers:{"Content-Type":"application/json",...(options.headers||{})},...options});
+  const data = await response.json().catch(()=>({}));
+  if(!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+  return data;
+}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function showError(message=""){ $("error").hidden=!message; $("error").textContent=message; }
+function showToast(message){const el=document.createElement("div");el.className="toast";el.textContent=message;document.body.append(el);setTimeout(()=>el.remove(),3000);}
+function renderSidebar(){
+  $("history").innerHTML="";
+  if(!state.user){$("userName").textContent="Guest";$("userEmail").textContent="Sign in to save chats";$("userAvatar").textContent="?";$("authAction").textContent="Sign in";}
+  else{$("userName").textContent=state.user.name;$("userEmail").textContent=state.user.email;$("userAvatar").textContent=state.user.name.slice(0,1).toUpperCase();$("authAction").textContent="Log out";}
+  for(const chat of state.chats){
+    const b=document.createElement("button");b.className="history-item"+(chat.id===state.activeId?" active":"");b.textContent=chat.title;b.title=chat.title;b.onclick=()=>openChat(chat.id);$("history").append(b);
+  }
+  if(!state.chats.length){const p=document.createElement("div");p.style.cssText="padding:8px;color:#858a95;font-size:13px";p.textContent=state.user?"Your chats will appear here.":"Create an account to save your chats."; $("history").append(p);}
+}
+function renderMessages(chat){
+  const root=$("messages");root.innerHTML="";
+  if(!chat || !chat.messages.length){
+    root.innerHTML=`<div class="welcome"><div class="biglogo">H</div><h1>What can I help with?</h1><p>Your space to ask questions, learn new things, brainstorm, and get things done.</p><div class="suggestions"><button class="suggestion" data-prompt="Explain a difficult topic in simple words"><strong>Learn something</strong><span>Explain a difficult topic simply</span></button><button class="suggestion" data-prompt="Help me build a useful app idea step by step"><strong>Build an idea</strong><span>Turn an idea into a plan</span></button><button class="suggestion" data-prompt="Help me practice natural American English"><strong>Practice English</strong><span>Learn everyday expressions</span></button><button class="suggestion" data-prompt="Give me a practical plan to learn programming from zero"><strong>Learn to code</strong><span>Make a practical learning plan</span></button></div></div>`;
+    root.querySelectorAll("[data-prompt]").forEach(b=>b.onclick=()=>{$("prompt").value=b.dataset.prompt;resizePrompt();$("prompt").focus();});return;
+  }
+  const list=document.createElement("div");list.className="message-list";
+  for(const msg of chat.messages){
+    const row=document.createElement("article");row.className="message "+(msg.role==="user"?"user":"assistant");
+    const av=document.createElement("div");av.className="message-avatar";av.textContent=msg.role==="user"?(state.user?.name?.[0]||"Y").toUpperCase():"H";
+    const bubble=document.createElement("div");bubble.className="bubble";bubble.textContent=msg.content;
+    row.append(av,bubble);list.append(row);
+  }
+  root.append(list);root.scrollTop=root.scrollHeight;
+}
+function activeChat(){return state.chats.find(c=>c.id===state.activeId)||null;}
+async function refreshChats(){
+  if(!state.user){state.chats=[];state.activeId=null;renderSidebar();renderMessages(null);return;}
+  const data=await api("/api/chats");state.chats=data.chats;
+  if(!state.chats.some(c=>c.id===state.activeId))state.activeId=state.chats[0]?.id||null;
+  renderSidebar();renderMessages(activeChat());
+}
+async function openChat(id){state.activeId=id;renderSidebar();renderMessages(activeChat());$("sidebar").classList.remove("open");}
+async function createChat(){
+  if(!state.user){showAuth("login");return;}
+  try{const data=await api("/api/chats",{method:"POST",body:"{}"});state.chats.unshift(data.chat);state.activeId=data.chat.id;renderSidebar();renderMessages(data.chat);$("prompt").focus();$("sidebar").classList.remove("open");}
+  catch(e){showToast(e.message);}
+}
+function resizePrompt(){const p=$("prompt");p.style.height="auto";p.style.height=Math.min(p.scrollHeight,180)+"px";}
+$("prompt").addEventListener("input",resizePrompt);
+$("prompt").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("composer").requestSubmit();}});
+$("composer").addEventListener("submit",async e=>{
+  e.preventDefault();if(state.busy)return;
+  const content=$("prompt").value.trim();if(!content)return;
+  if(!state.user){showAuth("login");return;}
+  if(!state.activeId){await createChat();if(!state.activeId)return;}
+  const chat=activeChat();if(!chat)return;
+  chat.messages.push({role:"user",content});if(chat.title==="New chat")chat.title=content.slice(0,42)+(content.length>42?"…":"");
+  $("prompt").value="";resizePrompt();showError("");renderSidebar();renderMessages(chat);
+  const root=$("messages");const list=root.querySelector(".message-list");
+  const wait=document.createElement("article");wait.className="message";wait.innerHTML='<div class="message-avatar">H</div><div class="bubble thinking">HMZ AI is thinking…</div>';list?.append(wait);root.scrollTop=root.scrollHeight;
+  state.busy=true;$("sendBtn").disabled=true;
+  try{
+    const data=await api(`/api/chats/${state.activeId}/messages`,{method:"POST",body:JSON.stringify({content})});
+    const index=state.chats.findIndex(c=>c.id===data.chat.id);if(index>=0)state.chats[index]=data.chat;else state.chats.unshift(data.chat);
+    renderSidebar();renderMessages(activeChat());
+  }catch(err){chat.messages.pop();showError(err.message);renderMessages(chat);}
+  finally{state.busy=false;$("sendBtn").disabled=false;$("prompt").focus();}
+});
+function showAuth(mode="login"){
+  state.authMode=mode;const register=mode==="register";
+  $("modalRoot").innerHTML=`<div class="modal-backdrop" id="backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><h2 id="authTitle">${register?"Create your account":"Welcome back"}</h2><p>${register?"Create an account to keep your conversations.":"Sign in to continue your conversations."}</p><form id="authForm">${register?'<label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="40" placeholder="Your name"></label>':""}<label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label class="field"><span>Password</span><input name="password" type="password" autocomplete="${register?"new-password":"current-password"}" minlength="${register?8:1}" required placeholder="${register?"At least 8 characters":"Your password"}"></label><div class="auth-error" id="authError"></div><button class="primary" type="submit">${register?"Create account":"Sign in"}</button></form><button class="switch-auth" id="switchAuth">${register?"Already have an account? Sign in":"New here? Create an account"}</button></section></div>`;
+  $("backdrop").addEventListener("click",e=>{if(e.target.id==="backdrop")$("modalRoot").innerHTML="";});
+  $("switchAuth").onclick=()=>showAuth(register?"login":"register");
+  $("authForm").onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const body=Object.fromEntries(fd.entries());const err=$("authError");err.textContent="";const button=e.target.querySelector("button[type=submit]");button.disabled=true;button.textContent="Please wait…";
+    try{const data=await api(register?"/api/register":"/api/login",{method:"POST",body:JSON.stringify(body)});state.user=data.user;$("modalRoot").innerHTML="";await refreshChats();updateStatus();showToast(register?"Account created.":"Signed in.");}
+    catch(ex){err.textContent=ex.message;}
+    finally{button.disabled=false;button.textContent=register?"Create account":"Sign in";}
+  };
+}
+$("newChat").onclick=createChat;
+$("authAction").onclick=async()=>{if(!state.user){showAuth("login");return;}try{await api("/api/logout",{method:"POST",body:"{}"});state.user=null;state.chats=[];state.activeId=null;renderSidebar();renderMessages(null);updateStatus();showToast("Signed out.");}catch(e){showToast(e.message);}};
+$("menuBtn").onclick=()=>$("sidebar").classList.toggle("open");
+async function updateStatus(){if(state.aiConfigured){$("statusText").textContent="AI connected";$("statusDot").style.background="var(--accent)";}else{$("statusText").textContent="AI setup needed";$("statusDot").style.background="#f0bb66";}}
+(async function init(){renderMessages(null);try{const data=await api("/api/me");state.user=data.user;state.aiConfigured=data.aiConfigured;updateStatus();await refreshChats();}catch(e){$("statusText").textContent="Offline";showError("Could not connect to the server. Please refresh.");} })();
+</script>
+</body></html>

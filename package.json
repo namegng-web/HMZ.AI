@@ -1,0 +1,12 @@
+{
+  "name": "hmz-ai-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack HMZ AI chat app with accounts and persistent chat history",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
